@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  doors: 2019-08-07 12:24:14
+  date: 2019-08-07
+  venue: one
+
+two:
+  name: MyString
+  doors: 2019-08-07 12:24:14
+  date: 2019-08-07
+  venue: two

@@ -1,0 +1,1 @@
+RAILS_SECRET: 'my super secret string which will be used to encode and decode JWTs'
