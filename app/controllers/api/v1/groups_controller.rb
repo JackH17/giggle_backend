@@ -1,5 +1,6 @@
 class Api::V1::GroupsController < ApplicationController
     skip_before_action :authorize, only: [:index]
+
     def create
         group = Group.create( group_params )
             if group.valid?
@@ -12,7 +13,7 @@ class Api::V1::GroupsController < ApplicationController
     
          def index
              @groups = Group.all
-             render json: { groups: @groups.map{ |group| GroupSerializer.new(group) }} 
+             render json: { groups: @groups.map{ |group| GroupSerializer.new(group) }}, include: :discussions
         end
     
             private

@@ -13,7 +13,6 @@ class Api::V1::EventsController < ApplicationController
     
     def index
       @events = Event.all
-      # render json: {events: @events}
       render json: { events: @events.map{ |event| EventSerializer.new(event) }} 
     end
     

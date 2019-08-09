@@ -11,15 +11,15 @@ class Api::V1::UsersController < ApplicationController
          end
         end
     
-         def index
-             @users = User.all
-            render json: { users: @users.map{ |user| UserSerializer.new(user) }}
+        def index
+            @users = User.all
+            render json: { users: @users.map{ |user| UserSerializer.new(user) }}, include: [:groups, :discussions]
         end
     
-            private
+        private
     
-            def user_params
+        def user_params
             params.require(:user).permit(:username, :first_name, :last_name, :bio, :password)
-            end
+        end
             
 end

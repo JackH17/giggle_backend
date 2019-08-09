@@ -1,12 +1,14 @@
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user, :event
+  attributes :id, :name, :event, :group_discussions
 
-  def user
-    UserSerializer.new(self.object.user)
-  end
 
   def event
     EventSerializer.new(self.object.event)
   end 
+
+  def group_discussions
+    self.object.discussions.map{|discussion| DiscussionSerializer.new(discussion)}
+  end 
+
 
 end
