@@ -1,5 +1,6 @@
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :name, :event, :group_discussions
+  attributes :id, :name, :event, :user_id, :group_discussions
+  has_many :memberships
 
 
   def event

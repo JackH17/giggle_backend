@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         resources :events, only: [:create, :show, :index]  
         resources :users
         resources :posts
+        resources :memberships, only: [:create, :index]
         resources :discussions, only: [:create, :show, :index]
         post '/login', to: 'auth#create'
         get '/validate', to: 'auth#validate'

@@ -3,7 +3,7 @@ class Api::V1::PostsController < ApplicationController
     skip_before_action :authorize, only: [:create, :index, :show]
 
     def create
-        post = Post.create( user_params )
+        post = Post.create( post_params )
             if post.valid?
             render json: { post: PostSerializer.new(post)}, status: :created
             # render json: { post: post, token: issue_token(user_id: post.id) }, status: :created
@@ -19,7 +19,7 @@ class Api::V1::PostsController < ApplicationController
     
         private
     
-        def user_params
+        def post_params
             params.require(:post).permit(:content, :user_id, :discussion_id)
         end
             

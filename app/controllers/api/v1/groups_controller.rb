@@ -13,7 +13,7 @@ class Api::V1::GroupsController < ApplicationController
     
          def index
              @groups = Group.all
-             render json: { groups: @groups.map{ |group| GroupSerializer.new(group) }}, include: :discussions
+             render json: { groups: @groups.map{ |group| GroupSerializer.new(group) }}, include: [:discussions, :memberships]
         end
     
             private

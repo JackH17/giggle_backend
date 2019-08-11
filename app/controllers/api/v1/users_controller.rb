@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     
         def index
             @users = User.all
-            render json: { users: @users.map{ |user| UserSerializer.new(user) }}, include: [:groups, :discussions]
+            render json: { users: @users.map{ |user| UserSerializer.new(user) }}, include: [:groups, :discussions, :memberships]
         end
     
         private
