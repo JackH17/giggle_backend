@@ -16,6 +16,9 @@ Rails.application.routes.draw do
         resources :discussions, only: [:create, :show, :index]
         post '/login', to: 'auth#create'
         get '/validate', to: 'auth#validate'
+        resources :chats, only: [:index, :create]
+        resources :messages, only: [:create, :index]
+        mount ActionCable.server => '/cable'
     end
   end
 end
